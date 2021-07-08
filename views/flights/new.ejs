@@ -2,10 +2,10 @@
 <html lang="en">
 <%- include('../partials/header') %>
 
-<form>
+<form action="/flights" method="POST">
     <fieldset>
       <label for="airline">Airline</label>
-      <input type="text" placeholder="Airline" id="airline" name="airline">
+      <input type="text" placeholder="Airline" id="airline" name="airline" required>
       <label for="airport">Airport</label>
       <select id="airport" name="airport">
         <option value="SEA" selected>SEA - Seattle-Tacoma</option>
@@ -16,10 +16,10 @@
         <option value="SAN">SAN - San Diego </option>
       </select>
       <label for="flightNo">Flight Number</label>
-      <input type="number" min="10" max="9999" placeholder="Flight no." id="flightNo" name="flightNo">
+      <input type="number" min="10" max="9999" placeholder="Flight no." id="flightNo" name="flightNo" required>
       <label for="departs">Departs</label>
-      <input type="datetime-local" placeholder="" id="departs" name="departs">
-      <input class="button-primary" type="submit" value="Send">
+      <input type="datetime-local" placeholder="" id="departs" name="departs" required>
+      <button type="submit" class="button">Submit</button>
     </fieldset>
   </form>
    
