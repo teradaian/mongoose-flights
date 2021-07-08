@@ -1,7 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/header') %>
-<body>
+
+<form>
+    <fieldset>
+      <label for="airline">Airline</label>
+      <input type="text" placeholder="Airline" id="airline" name="airline">
+      <label for="airport">Airport</label>
+      <select id="airport" name="airport">
+        <option value="SEA" selected>SEA - Seattle-Tacoma</option>
+        <option value="AUS">AUS - Austin-Bergstrom</option>
+        <option value="DFW">DFW - Dallas/Fort Worth</option>
+        <option value="DEN">DEN - Denver</option>
+        <option value="LAX">LAX - Los Angeles</option>
+        <option value="SAN">SAN - San Diego </option>
+      </select>
+      <label for="flightNo">Flight Number</label>
+      <input type="number" min="10" max="9999" placeholder="Flight no." id="flightNo" name="flightNo">
+      <label for="departs">Departs</label>
+      <input type="datetime-local" placeholder="" id="departs" name="departs">
+      <input class="button-primary" type="submit" value="Send">
+    </fieldset>
+  </form>
    
 </body>
 </html>

@@ -12,34 +12,15 @@ input, select {
 }
 
 .button {
-  background-color: #00B7FF;
+  background: #00B7FF;
   border-radius: 5px;
+  border: none;
   color: white;
-  padding: .5em 1em;
   text-decoration: none;
   text-transform: uppercase;
 }
 
 .button:hover {
-  background-color: #00B7FF;
-  color: lightgray;
-  margin-top: 1rem;
-  padding: .5em 1em;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.submit-btn {
-  background-color: #00B7FF;
+  background: #00B7FF;
   color: whitesmoke;
-  padding: .5rem;
-  border: none;
-  margin-top: 10px;
-  border-radius: 5px;
 }
-
-.submit-btn:hover {
-  color: white;
-  border: 1px solid #009bd8
-}
-
