@@ -11,6 +11,18 @@ input, select {
   margin-top: .4rem;
 }
 
+nav {
+  display: flex;
+}
+
+nav a {
+  margin: 0 .6rem;
+}
+
+nav h2 {
+  margin-right: auto;
+}
+
 .button {
   background: #00B7FF;
   border-radius: 5px;
