@@ -24,3 +24,7 @@ input, select {
   background: #00B7FF;
   color: whitesmoke;
 }
+
+.departed {
+  color: red;
+}
