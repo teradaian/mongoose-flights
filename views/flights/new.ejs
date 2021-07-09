@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/header') %>
-
+<p class="error"><%= err !== null ? err : "" %></p>
 <form action="/flights" method="POST">
     <fieldset>
       <label for="airline">Airline</label>
-      <input type="text" placeholder="Airline" id="airline" name="airline" required>
+      <input type="text" placeholder='Airline' id="airline" name="airline" required>
       <label for="airport">Airport</label>
       <select id="airport" name="airport">
         <option value="SEA" selected>SEA - Seattle-Tacoma</option>

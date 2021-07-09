@@ -13,13 +13,17 @@ function index(req, res){
 }
 
 function newFlight(req, res){
-    res.render('flights/new')
+    // I know this is gimmicky but I didn't want to build out a whole try catch thing for this lab sry sry
+    let err = null
+    res.render('flights/new', {err})
 }
 
 function createFlight(req, res){
         const flight = new Flight(req.body)
         flight.save(err => {
-          if (err) return res.render('flights/new')
+          if (err) {
+            return res.render('flights/new', {err, invalidAirline: req.body.airline})
+          }
           res.redirect('/flights')
         })
 }
