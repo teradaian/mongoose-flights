@@ -13,6 +13,7 @@ input, select {
 
 nav {
   display: flex;
+  align-items: center;
 }
 
 nav a {
@@ -26,14 +27,21 @@ nav > a.current {
 
 nav h2 {
   margin-right: auto;
+  margin-bottom: 20px;
 }
 
 form {
   margin-bottom: 0;
+  align-self: center;
 }
 
 form button {
   margin-bottom: 0;
+}
+
+.container {
+  padding: 50px;
+  border: 1px solid #606c76;
 }
 
 .button {
@@ -67,3 +75,28 @@ form button {
   background: white;
 }
 
+#show-flight-info {
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 700px) {
+  #show-flight-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #show-flight-info p {
+    margin-bottom: 1rem;
+  }
+
+  nav h2 {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+  nav .button {
+    padding: 1rem;
+    line-height: normal;
+    font-size: 1rem;
+  }
+}

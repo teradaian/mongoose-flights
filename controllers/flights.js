@@ -43,10 +43,9 @@ function deleteTicket(req, res){
   Flight.find({}, (err, flight) => {
     flight[0].tickets.remove({_id: req.params.id})
     flight[0].save(err => {
-      console.log(flight)
       res.redirect('/flights')
     })
-})
+  })
 }
 
 function showFlight(req, res){

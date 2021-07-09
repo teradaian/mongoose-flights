@@ -1,9 +1,15 @@
 <%- include('../partials/header') %>
 <%- include('../partials/nav') %>
 
+<div class="container">
+
 <h1>Tickets <i class="fa fa-ticket"></i></h1>
 
-<p><%= `Airline: ${flight.airline} | Departing from: ${flight.airport} Intl Airport | Flight No. ${flight.flightNo}` %></p>
+<div id="show-flight-info">
+  <p> <%= `Airline: ${flight.airline}` %> &nbsp; </p> 
+  <p> <%= `Departing from: ${flight.airport} Intl Airport` %> &nbsp; </p> 
+  <p> <%= `Flight No. ${flight.flightNo}` %> </p> 
+</div>
 
 <a href="<%= flight._id %>/ticket">Add Ticket <i class="fa fa-plus"></i></a>
 
@@ -33,5 +39,7 @@
 <% } else { %>
 
 <% } %>
+
+</div>
 
 <%- include('../partials/footer') %>
