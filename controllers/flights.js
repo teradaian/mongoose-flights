@@ -3,7 +3,8 @@ import { Flight } from '../models/flight.js'
 export {
     newFlight as new,
     createFlight as create,
-    index
+    index,
+    deleteFlight as delete
 }
 
 function index(req, res){
@@ -24,6 +25,12 @@ function createFlight(req, res){
           if (err) {
             return res.render('flights/new', {err, invalidAirline: req.body.airline})
           }
+          res.redirect('/flights')
+        })
+}
+
+function deleteFlight(req, res){
+        Flight.findByIdAndDelete(req.params.id, (err, flight) => {
           res.redirect('/flights')
         })
 }

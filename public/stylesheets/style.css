@@ -23,6 +23,14 @@ nav h2 {
   margin-right: auto;
 }
 
+form {
+  margin-bottom: 0;
+}
+
+form button {
+  margin-bottom: 0;
+}
+
 .button {
   background: #00B7FF;
   border-radius: 5px;
@@ -39,4 +47,17 @@ nav h2 {
 
 .departed {
   color: red;
+}
+
+.delete-btn {
+  font-size: 2rem;
+  color: red;
+  padding: 0;
+  border: none;
+  background: white;
+}
+
+.delete-btn:hover {
+  color: red;
+  background: white;
 }

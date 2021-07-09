@@ -8,6 +8,7 @@
         <th>Airport</th>
         <th>Flight No.</th>
         <th>Departure Date</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -21,6 +22,11 @@
           <% let date = flight.departs.toLocaleString("en-US", formatting) %>
           <% let curTime = new Date() %>
           <td class="<%= flight.departs < curTime ? 'departed' : '' %>"><%= date %></td>
+          <td> 
+            <form action="/flights/<%= flight._id %>?_method=DELETE" class="delete-form" method="POST">
+            <button type="submit" class="delete-btn"><i class="fa fa-trash"></i></button>
+            </form>
+          </td>
         </tr>
       <% }) %>
     </tbody>
