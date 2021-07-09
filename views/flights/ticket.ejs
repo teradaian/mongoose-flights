@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<form action="/flights/<%= flight._id %>" method="POST" name="<%=flight._id%>">
+    <fieldset>
+      <label for="seat">Seat</label>
+      <input type="text" placeholder='Seat No.' id="seat" name="seat" required>
+      <label for="Price">Price</label>
+      <input type="number" min="0" placeholder="$" id="price" name="price" required>
+      <button type="submit" class="button">Submit</button>
+    </fieldset>
+  </form>
+<%- include('../partials/footer') %>

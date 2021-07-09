@@ -1,0 +1,37 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<h1>Tickets <i class="fa fa-ticket"></i></h1>
+
+<p><%= `Airline: ${flight.airline} | Departing from: ${flight.airport} Intl Airport | Flight No. ${flight.flightNo}` %></p>
+
+<a href="<%= flight._id %>/ticket">Add Ticket <i class="fa fa-plus"></i></a>
+
+<% if(flight.tickets.length) { %>
+<table>
+    <thead>
+      <tr>
+        <th>Seat</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <% flight.tickets.forEach(ticket => { %>
+          <tr>
+            <td> <%= ticket.seat %> </td>
+            <td> $<%= ticket.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') %> </td>
+            <td>
+                <form action="/flights/<%= ticket._id %>/ticket?_method=DELETE" class="delete-form" method="POST">
+                <button type="submit" class="delete-btn"><i class="fa fa-trash"></i></button>
+                </form>
+            </td>
+          </tr>
+        <% }) %>
+    </tbody>
+  </table>
+<% } else { %>
+
+<% } %>
+
+<%- include('../partials/footer') %>

@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 40px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -17,6 +17,11 @@ nav {
 
 nav a {
   margin: 0 .6rem;
+}
+
+nav > a.current {
+  border-bottom: 2px solid #606c76;
+  background: linear-gradient(145deg, #00a5e6, #00c4ff);
 }
 
 nav h2 {
@@ -41,8 +46,8 @@ form button {
 }
 
 .button:hover {
-  background: #00B7FF;
-  color: whitesmoke;
+  background: linear-gradient(145deg, #00a5e6, #00c4ff);
+  color: white;
 }
 
 .departed {
@@ -61,3 +66,4 @@ form button {
   color: red;
   background: white;
 }
+

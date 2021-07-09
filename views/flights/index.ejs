@@ -1,6 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
 <%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<% if(flights.length) { %>
   <table>
     <thead>
       <tr>
@@ -12,12 +13,11 @@
       </tr>
     </thead>
     <tbody>
-        <% let flightsByDeparture = flights.sort((a, b) => a.departs - b.departs) %>
-        <% flightsByDeparture.forEach(flight => { %>
+        <% flights.forEach(flight => { %>
         <tr>
           <td><%= flight.airline %></td>
           <td><%= flight.airport %></td>
-          <td><%= flight.flightNo %></td>
+          <td><%= flight.flightNo %> <a href="flights/<%= flight._id %>">details</a></td>
           <% let formatting = { hour: '2-digit', minute: '2-digit', weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' } %>
           <% let date = flight.departs.toLocaleString("en-US", formatting) %>
           <% let curTime = new Date() %>
@@ -31,5 +31,10 @@
       <% }) %>
     </tbody>
   </table>
-</body>
-</html>
+<% } else { %>
+  <a href="/flights/new"> Add Flight <i class="fa fa-plus"></i></a>
+<% } %>
+
+<%- include('../partials/footer') %>
+
+<!-- <input name="seat" required pattern="[A-F][1-9]\d?"> -->

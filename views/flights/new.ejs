@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
 <%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
 <p class="error"><%= err !== null ? err : "" %></p>
 <form action="/flights" method="POST">
     <fieldset>
@@ -22,6 +22,4 @@
       <button type="submit" class="button">Submit</button>
     </fieldset>
   </form>
-   
-</body>
-</html>
+<%- include('../partials/footer') %>
