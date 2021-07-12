@@ -1,14 +1,16 @@
 import mongoose from 'mongoose'
+import { Destination } from './destination.js'
+
 export { Flight }
 
 const Schema = mongoose.Schema
 
+// this is a required field on the front end, but I wanted to type it out for practice.
 function setDefaultDepartureDate(){
     const today = new Date()
     const defaultDate = today.getFullYear() + 1
     return today.setFullYear(defaultDate)
 }
-// this is required, but I wanted to type it out
 
 const ticketSchema = new Schema({
     seat: {type: String, match: /[A-F][1-9]\d?/},
@@ -24,6 +26,7 @@ const flightSchema = new Schema({
     flightNo: {type: Number, min: 10, max: 9999},
     departs: {type: Date, default: setDefaultDepartureDate()},
     tickets: {type: [ticketSchema]},
+    destinations: {type: Schema.Types.ObjectId, ref: Destination},
 }, { timestamps: true })
 
 const Flight = mongoose.model('Flight', flightSchema)

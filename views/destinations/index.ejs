@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<% if(destinations.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Airport</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <% destinations.forEach(destination => { %>
+        <tr>
+            <td><%= destination.airport %></td>
+            <td>
+                <form action="/destinations/<%= destination._id %>?_method=DELETE" class="delete-form" method="POST">
+                <button type="submit" class="delete-btn"><i class="fa fa-trash"></i></button>
+                </form>
+            </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } else { %>
+  <a href="/destinations/new"> Add Destination <i class="fa fa-plus"></i></a>
+<% } %>
+
+<%- include('../partials/footer') %>
