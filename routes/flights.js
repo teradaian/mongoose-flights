@@ -1,3 +1,4 @@
+import { render } from 'ejs'
 import { Router } from 'express'
 import * as flightCtrl from '../controllers/flights.js'
 
@@ -5,6 +6,7 @@ const router = Router()
 
 router.get('/new', flightCtrl.new)
 router.get('/:id/ticket', flightCtrl.showTicket)
+router.post('/:id/destinations', flightCtrl.addToFlight)
 router.post('/:id', flightCtrl.createTicket)
 router.get('/:id', flightCtrl.show)
 router.get('/', flightCtrl.index)

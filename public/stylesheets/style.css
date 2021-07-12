@@ -97,6 +97,14 @@ form button {
   display: none;
 }
 
+#destination-title {
+  margin-top: 1rem;
+}
+
+#dest-link {
+  margin-left: 5px;
+}
+
 @media screen and (max-width: 700px) {
   #show-flight-info {
     display: flex;

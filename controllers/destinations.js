@@ -36,3 +36,4 @@ function deleteDestination(req, res){
       res.redirect('/destinations')
     })
 }
+

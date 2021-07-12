@@ -3,7 +3,7 @@
 
 <div class="container">
 
-<h1>Tickets <i class="fa fa-ticket"></i></h1>
+<h2>Flight Details <i class="fa fa-ticket"></i></h2>
 
 <div id="show-flight-info">
   <p> <%= `Airline: ${flight.airline}` %> &nbsp; </p> 
@@ -40,6 +40,33 @@
 
 <% } %>
 
+  <label for="add-dest" id="destination-title">Destinations</label>
+  <% if(flight.destinations.length) { %>
+
+    <table>
+      <tbody>
+        <% flight.destinations.forEach(destination => { %>
+        <tr>
+          <td> <%= destination.airport %> </td>
+        </tr>
+      <% })%>
+      </tbody>
+    </table>
+      <% } else { %>
+        <p>No destination set</p>
+      <% } %>
+
+  <form action="/flights/<%- flight._id %>/destinations" method="POST" id="add-dest">
+    <fieldset>
+      <select id="destinationId" name="destinationId">
+        <% newDestination.forEach(destination => { %>
+          <option value="<%= destination._id %>"> <%= destination.airport %> </option>
+        <% }) %>
+      </select>
+      <button type="submit" class="button">Submit</button> <a id="dest-link" href="/destinations/new"> New Destination <i class="fa fa-plus"></i> </a>
+    </fieldset>
+  </form>
 </div>
+
 
 <%- include('../partials/footer') %>

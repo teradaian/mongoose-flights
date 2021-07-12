@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-import { Destination } from './destination.js'
 
 export { Flight }
 
@@ -26,7 +25,7 @@ const flightSchema = new Schema({
     flightNo: {type: Number, min: 10, max: 9999},
     departs: {type: Date, default: setDefaultDepartureDate()},
     tickets: {type: [ticketSchema]},
-    destinations: {type: Schema.Types.ObjectId, ref: Destination},
+    destinations: [{type: Schema.Types.ObjectId, ref: 'Destination'}],
 }, { timestamps: true })
 
 const Flight = mongoose.model('Flight', flightSchema)
