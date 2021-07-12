@@ -31,8 +31,12 @@
       <% }) %>
     </tbody>
   </table>
-<% } else { %>
   <a href="/flights/new"> Add Flight <i class="fa fa-plus"></i></a>
+<% } else { %>
+  <div class="container">
+    <p>You're not tracking any flights yet! </p>
+    <a href="/flights/new"> Let's start <i class="fa fa-plus"></i></a>
+  </div>
 <% } %>
 
 <%- include('../partials/footer') %>

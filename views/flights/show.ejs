@@ -6,9 +6,9 @@
 <h2>Flight Details <i class="fa fa-ticket"></i></h2>
 
 <div id="show-flight-info">
-  <p> <%= `Airline: ${flight.airline}` %> &nbsp; </p> 
-  <p> <%= `Departing from: ${flight.airport} Intl Airport` %> &nbsp; </p> 
-  <p> <%= `Flight No. ${flight.flightNo}` %> </p> 
+  <p> <strong>Airline</strong> <%= flight.airline %> &nbsp; </p> 
+  <p> <strong>Departing from: </strong> <%= flight.airport%> Intl Airport &nbsp; </p> 
+  <p> <strong>Flight No.</strong> <%= flight.flightNo %> </p> 
 </div>
 
 <a href="<%= flight._id %>/ticket">Add Ticket <i class="fa fa-plus"></i></a>
@@ -41,8 +41,8 @@
 <% } %>
 
   <label for="add-dest" id="destination-title">Destinations</label>
+  <% console.log(flight) %>
   <% if(flight.destinations.length) { %>
-
     <table>
       <tbody>
         <% flight.destinations.forEach(destination => { %>
@@ -52,9 +52,6 @@
       <% })%>
       </tbody>
     </table>
-      <% } else { %>
-        <p>No destination set</p>
-      <% } %>
 
   <form action="/flights/<%- flight._id %>/destinations" method="POST" id="add-dest">
     <fieldset>
@@ -66,7 +63,10 @@
       <button type="submit" class="button">Submit</button> <a id="dest-link" href="/destinations/new"> New Destination <i class="fa fa-plus"></i> </a>
     </fieldset>
   </form>
-</div>
+  <% } else { %>
+    <a id="dest-link" href="/destinations/new">New Destination <i class="fa fa-plus"></i> </a>
+  <% } %>
 
+</div>
 
 <%- include('../partials/footer') %>

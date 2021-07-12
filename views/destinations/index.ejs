@@ -22,8 +22,14 @@
       <% }) %>
     </tbody>
   </table>
+  <a href="/destinations/new"> Add New Destination <i class="fa fa-plus"></i></a>
 <% } else { %>
-  <a href="/destinations/new"> Add Destination <i class="fa fa-plus"></i></a>
+  <div class="container">
+    <p>Doesn't seem like you have any destinations yet <i class="fa fa-passport"></i></p> 
+    <a href="/destinations/new"> Add Destination <i class="fa fa-plus"></i></a>
+  </div>
 <% } %>
+
+
 
 <%- include('../partials/footer') %>

@@ -54,24 +54,22 @@ function showFlight(req, res){
     Flight.findById(req.params.id)
     .populate('destinations')
     .exec((err, flight) => {
-      Destination.find({ _id: {$nin: flight.destinations}}, (err, newDestination) => {
+      Destination.find({_id: {$nin: flight.destinations}}, (err, newDestination) => {
         res.render('flights/show', {
           err, flight, newDestination, title: 'Flight Details' 
       })
     })
-}
+    }
 )}
 
 function showTicket(req, res){
     Flight.findById(req.params.id)
-      .populate('destinations')
       .exec((err, flight) => {
           res.render('flights/ticket', {
             err, flight, title: 'Ticket Details' 
         })
       })
 }
-
 
 function createTicket(req, res){
     Flight.findById(req.params.id, (err, flight) => {
