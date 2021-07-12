@@ -20,6 +20,14 @@ nav a {
   margin: 0 .6rem;
 }
 
+nav > a:first-child {
+  color: #606c76;
+}
+
+nav > a:nth-child(2) {
+  margin-left: auto;
+}
+
 nav > a.current {
   border-bottom: 2px solid #606c76;
   background: linear-gradient(145deg, #00a5e6, #00c4ff);
@@ -51,6 +59,7 @@ form button {
   color: white;
   text-decoration: none;
   text-transform: uppercase;
+  margin-bottom: 0;
 }
 
 .button:hover {
@@ -91,7 +100,7 @@ form button {
   }
 
   nav h2 {
-    font-size: 2rem;
+    font-size: 2.4rem;
     margin-bottom: 0;
   }
   nav .button {
