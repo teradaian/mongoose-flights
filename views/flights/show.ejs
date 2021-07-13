@@ -41,7 +41,6 @@
 <% } %>
 
   <label for="add-dest" id="destination-title">Destinations</label>
-  <% console.log(flight) %>
   <% if(flight.destinations.length) { %>
     <table>
       <tbody>
@@ -52,7 +51,10 @@
       <% })%>
       </tbody>
     </table>
+    <% } else { %>
+  <% } %>
 
+  <% if(newDestination.length) { %>
   <form action="/flights/<%- flight._id %>/destinations" method="POST" id="add-dest">
     <fieldset>
       <select id="destinationId" name="destinationId">

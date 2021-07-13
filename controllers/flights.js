@@ -64,6 +64,7 @@ function showFlight(req, res){
 
 function showTicket(req, res){
     Flight.findById(req.params.id)
+      .populate('destinations')
       .exec((err, flight) => {
           res.render('flights/ticket', {
             err, flight, title: 'Ticket Details' 
