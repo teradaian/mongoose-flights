@@ -67,6 +67,10 @@ form button {
   margin-top: 2.2rem;
 }
 
+.error {
+  color: red;
+}
+
 
 
 @media screen and (max-width: 740px) {
