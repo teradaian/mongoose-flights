@@ -24,15 +24,13 @@ function newDestination(req, res){
 function createDestination(req, res){
         const destination = new Destination(req.body)
         destination.save(err => {
-          if (err) {
-            return res.render('destinations/new', {err, invalidDestination: req.body.airport})
-          }
+          if (err) return res.render('destinations/new', {err, invalidDestination: req.body.airport})
           res.redirect('/destinations')
         })
 }
 
 function deleteDestination(req, res){
-    Destination.findByIdAndDelete(req.params.id, (err, destination) => {
+    Destination.findByIdAndDelete(req.params.id, () => {
       res.redirect('/destinations')
     })
 }
