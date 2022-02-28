@@ -2,28 +2,27 @@ import { Flight } from '../models/flight.js'
 import { Destination } from '../models/destination.js'
 
 export {
-    newFlight as new,
-    createFlight as create,
-    index,
-    deleteFlight as delete,
-    showFlight as show,
-    createTicket,
-    showTicket,
-    deleteTicket,
     addToFlight,
-    deleteDestination
+    createFlight as create,
+    createTicket,
+    deleteDestination,
+    deleteFlight as delete,
+    deleteTicket,
+    index,
+    newFlight as new,
+    showFlight as show,
+    showTicket,
 }
 
 function index(req, res){
     Flight.find(({}), (err, flights) => {
         res.render('flights/index', { err, flights, title: 'All Flights' })
-    }).sort({ departs: 'ascending' })
+    })
+    .sort({ departs: 'ascending' })
 }
 
 function newFlight(req, res){
-    // I know this is gimmicky but I didn't want to build out a whole try catch thing for this lab sry sry
-    let err = null
-    res.render('flights/new', {err, title: 'New Flight'})
+    res.render('flights/new', {err: null, title: 'New Flight'})
 }
 
 function createFlight(req, res){

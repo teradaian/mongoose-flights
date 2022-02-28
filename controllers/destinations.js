@@ -1,10 +1,10 @@
 import { Destination } from '../models/destination.js'
 
 export {
-    index,
-    newDestination as new,
     createDestination as create,
     deleteDestination as delete,
+    index,
+    newDestination as new,
 }
 
 function index(req, res){
