@@ -1,10 +1,10 @@
 import mongoose from 'mongoose'
-
 export { Flight }
 
 const Schema = mongoose.Schema
 
-// this is a required field on the front end, but I wanted to type it out for practice.
+const validAirlines = ['American', 'Southwest', 'Delta', 'United', 'Hawaiian', 'Alaskan Airlines', 'Spirit', 'IcelandAir']
+
 function setDefaultDepartureDate(){
     const today = new Date()
     const defaultDate = today.getFullYear() + 1
@@ -18,8 +18,8 @@ const ticketSchema = new Schema({
 
 const flightSchema = new Schema({
     airline: {type: String, required: true, enum: {
-        values: ['American', 'Southwest', 'Delta', 'United', 'Hawaiian', 'Alaskan Airlines'],
-        message: 'Invalid Airline'
+        values: [...validAirlines],
+        message: 'Invalid Airline!'
     }},
     airport: {type: String, default: 'SEA'},
     flightNo: {type: Number, min: 10, max: 9999},
