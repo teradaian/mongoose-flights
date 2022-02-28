@@ -1,9 +1,8 @@
 <%- include('../partials/header') %>
 <%- include('../partials/nav') %>
 
-
 <% if(err) { %>
-  <p class='error'> <%= invalidAirline %> is not a valid airline </p>
+  <p class='error'> <%= invalidAirline %> is not a valid airline.</p>
   <% } else { %>
   <% } %>
 <form action="/flights" method="POST">
