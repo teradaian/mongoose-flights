@@ -1,4 +1,3 @@
-import { render } from 'ejs'
 import { Router } from 'express'
 import * as flightCtrl from '../controllers/flights.js'
 
@@ -16,7 +15,4 @@ router.delete('/:id/ticket', flightCtrl.deleteTicket)
 router.delete('/:id', flightCtrl.delete)
 
 
-
-export {
-  router
-}
+export { router }
