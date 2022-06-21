@@ -94,11 +94,15 @@ const addToFlight = async (req, res) => {
   }
 }
 
-function deleteDestination(req, res){
-    Flight.findById(req.params.id), (err, flight) => {
-    flight.destinations.remove(req.params.did)
-    flight.save(err => {
-      res.redirect('/flights')
-    })
-    }
+const deleteDestination = async (req, res) => {
+  try {
+    const flight = await Flight.findById(req.params.id)
+    await flight.destinations.remove(req.params.did)
+    await flight.save()
+  } catch (error) {
+    console.log(error)
+  } finally {
+    res.redirect('/flights')
+  }
+
 }
