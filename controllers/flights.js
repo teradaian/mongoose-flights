@@ -41,6 +41,7 @@ function deleteFlight(req, res){
 
 function deleteTicket(req, res){
   Flight.find({}, (err, flight) => {
+    console.log(flight)
     flight[0].tickets.remove({_id: req.params.id})
     flight[0].save(err => {
       res.redirect('/flights')
@@ -69,22 +70,28 @@ function showTicket(req, res){
       })
 }
 
-function createTicket(req, res){
-    Flight.findById(req.params.id, (err, flight) => {
-      flight.tickets.push(req.body)
-      flight.save(err => {
-        res.redirect(`/flights/${flight._id}`)
-      })
-    })
+const createTicket = async (req, res) => {
+  try {
+    const flight = await Flight.findById(req.params.id)
+    await flight.tickets.push(req.body)
+    await flight.save()
+    res.redirect(`/flights/${flight._id}`)
+  } catch (error) {
+    console.log(error)
+    res.redirect(`/flights/${req.params.id}`)
+  }
 }
 
-function addToFlight(req, res){
-    Flight.findById(req.params.id, (err, flight) => {
-      flight.destinations.push(req.body.destinationId)
-      flight.save(err => {
-        res.redirect(`/flights/${flight._id}`)
-      })
-    })
+const addToFlight = async (req, res) => {
+  try {
+    const flight = await Flight.findById(req.params.id)
+    await flight.destinations.push(req.body.destinationId)
+    await flight.save()
+  } catch (error) {
+    console.log(error)
+  } finally {
+    res.redirect(`/flights/${req.params.id}`)
+  }
 }
 
 function deleteDestination(req, res){
