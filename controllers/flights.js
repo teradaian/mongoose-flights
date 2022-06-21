@@ -61,13 +61,16 @@ function showFlight(req, res){
     })
 }
 
-function showTicket(req, res){
-    Flight.findById(req.params.id)
-      .exec((err, flight) => {
-          res.render('flights/ticket', {
-            err, flight, title: 'Ticket Details' 
-        })
-      })
+const showTicket = async (req, res) => {
+  try {
+    const flight = await Flight.findById(req.params.id)
+    res.render('flights/ticket', {
+      error, flight, title: 'Ticket Details' 
+    })
+  } catch (error) {
+    console.log(error)
+    res.redirect(`/flights`)
+  }
 }
 
 const createTicket = async (req, res) => {
@@ -104,5 +107,4 @@ const deleteDestination = async (req, res) => {
   } finally {
     res.redirect('/flights')
   }
-
 }
