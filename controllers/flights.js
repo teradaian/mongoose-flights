@@ -64,9 +64,7 @@ function showFlight(req, res){
 const showTicket = async (req, res) => {
   try {
     const flight = await Flight.findById(req.params.id)
-    res.render('flights/ticket', {
-      error, flight, title: 'Ticket Details' 
-    })
+    res.render('flights/ticket', { flight, title: 'Ticket Details' })
   } catch (error) {
     console.log(error)
     res.redirect(`/flights`)
