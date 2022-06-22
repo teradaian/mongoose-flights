@@ -39,13 +39,16 @@ function deleteFlight(req, res){
     })
 }
 
-function deleteTicket(req, res){
-  Flight.findById(req.params.id, (err, flight) => {
+const deleteTicket = async(req, res) => {
+  try {
+    const flight = await Flight.findById(req.params.id)
     flight.tickets = flight.tickets.filter(ticket => ticket._id.toString() !== req.params.ticketId)
-    flight.save(err => {
-      res.redirect(`/flights/${flight._id}`)
-    })
-  })
+    flight.save()
+  } catch (error) {
+    console.log(error)
+  } finally {
+    res.redirect(`/flights/${req.params.id}`)
+  }
 }
 
 const showFlight = async (req, res) => {
