@@ -40,11 +40,10 @@ function deleteFlight(req, res){
 }
 
 function deleteTicket(req, res){
-  Flight.find({}, (err, flight) => {
-    console.log(flight)
-    flight[0].tickets.remove({_id: req.params.id})
-    flight[0].save(err => {
-      res.redirect('/flights')
+  Flight.findById(req.params.id, (err, flight) => {
+    flight.tickets = flight.tickets.filter(ticket => ticket._id.toString() !== req.params.ticketId)
+    flight.save(err => {
+      res.redirect(`/flights/${flight._id}`)
     })
   })
 }
