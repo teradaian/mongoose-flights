@@ -49,16 +49,16 @@ function deleteTicket(req, res){
   })
 }
 
-function showFlight(req, res){
-    Flight.findById(req.params.id)
-    .populate('destinations')
-    .exec((err, flight) => {
-      Destination.find({_id: {$nin: flight.destinations}}, (err, newDestination) => {
-        res.render('flights/show', {
-          err, flight, newDestination, title: 'Flight Details' 
-      })
-    })
-    })
+const showFlight = async (req, res) => {
+  try {
+    const flight = await Flight.findById(req.params.id)
+    await flight.populate('destinations')
+    const newDestination = await Destination.find({_id: {$nin: flight.destinations}})
+    res.render('flights/show', {flight, newDestination, title: 'Flight Details'})
+  } catch (error) {
+    console.log(error)
+    res.redirect('/flights')
+  }
 }
 
 const showTicket = async (req, res) => {
