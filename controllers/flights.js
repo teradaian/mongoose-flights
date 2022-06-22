@@ -51,6 +51,7 @@ const deleteTicket = async(req, res) => {
   }
 }
 
+
 const showFlight = async (req, res) => {
   try {
     const flight = await Flight.findById(req.params.id)
