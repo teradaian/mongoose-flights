@@ -17,8 +17,7 @@ export {
 function index(req, res){
     Flight.find(({}), (err, flights) => {
         res.render('flights/index', { err, flights, title: 'All Flights' })
-    })
-    .sort({ departs: 'ascending' })
+    }).sort({ departs: 'ascending' })
 }
 
 function newFlight(req, res){
@@ -77,11 +76,11 @@ const showTicket = async (req, res) => {
 const createTicket = async (req, res) => {
   try {
     const flight = await Flight.findById(req.params.id)
-    await flight.tickets.push(req.body)
+    flight.tickets.push(req.body)
     await flight.save()
-    res.redirect(`/flights/${flight._id}`)
   } catch (error) {
     console.log(error)
+  } finally {
     res.redirect(`/flights/${req.params.id}`)
   }
 }
@@ -89,7 +88,7 @@ const createTicket = async (req, res) => {
 const addToFlight = async (req, res) => {
   try {
     const flight = await Flight.findById(req.params.id)
-    await flight.destinations.push(req.body.destinationId)
+    flight.destinations.push(req.body.destinationId)
     await flight.save()
   } catch (error) {
     console.log(error)
